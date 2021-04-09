@@ -5,9 +5,19 @@ import javax.inject.Inject
 
 private const val TAG = "Car"
 
-public class Car @Inject constructor(private var engine: Engine, private var wheels: Wheels) {
+/**
+ * Constructor is First, field is Second and method is third is run.
+ */
+public class Car @Inject constructor(private var wheels: Wheels){ //Constructor injection
+
+    @Inject lateinit var engine: Engine //Field injection
 
     fun drive(){
         Log.e(TAG, "driving...")
+    }
+
+    @Inject //Method injection
+    fun enableRemote(remote : Remote){
+        remote.setListener(this)
     }
 }
