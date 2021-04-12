@@ -13,6 +13,7 @@ public class Car @Inject constructor(private var wheels: Wheels){ //Constructor 
     @Inject lateinit var engine: Engine //Field injection
 
     fun drive(){
+        engine.start()
         Log.e(TAG, "driving...")
     }
 
